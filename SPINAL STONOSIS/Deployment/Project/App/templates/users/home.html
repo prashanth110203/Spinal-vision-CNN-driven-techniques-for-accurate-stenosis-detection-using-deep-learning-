@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Spinal Stonosis </title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{%static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{%static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{%static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{%static 'assets/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+  <link href="{%static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{%static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{%static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{%static 'assets/css/main.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: UpConstruction - v1.3.0
+  * Template URL: https://bootstrapmade.com/upconstruction-bootstrap-construction-website-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header d-flex align-items-center">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1>Welcome <span>{{ user.username |default:'Guest'}}</span></h1>
+      </a>
+      {% if user.is_authenticated %}
+      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="{% url 'users-profile' %}">Propile</a></li>
+          <li><a href="{% url 'Database' %}">Database</a></li>
+          <li><a href="{% url 'profile_list' %}">Propile_Database</a></li>
+          
+          <li><a href="{% url 'logout_view' %}">Logout</a></li>
+        </ul>
+      </nav><!-- .navbar -->
+      {% endif %}
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  {% if user.is_authenticated %}
+  <section id="hero" class="hero" style="background: url(https://painandspinespecialists.com/wp-content/uploads/What-Is-the-Best-Treatment-for-Spinal-Stenosis.jpeg); background-repeat: no-repeat; background-size: cover;" >
+
+    <div class="info d-flex align-items-center">
+      <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 text-center">
+             
+                <h2 >SPINAL LUMBER STONOSIS STAGES    <span>CLASSIFICATION</span></h2>
+
+              <a data-aos="fade-up" data-aos-delay="200" href="{% url 'model' %}" class="btn-get-started">MODEL</a>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+
+      <div class="carousel-item active" style="background-image: url(https://mmdchiropractic.ca/wp-content/uploads/2022/02/GettyImages-975681356-1080x675.jpg)">
+      </div>
+      <div class="carousel-item" style="background-image: url(assets/img/hero-carousel/hero-carousel-2.jpg)"></div>
+      <div class="carousel-item" style="background-image: url(assets/img/hero-carousel/hero-carousel-3.jpg)"></div>
+      <div class="carousel-item" style="background-image: url(assets/img/hero-carousel/hero-carousel-4.jpg)"></div>
+      <div class="carousel-item" style="background-image: url(assets/img/hero-carousel/hero-carousel-5.jpg)"></div>
+
+      <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+      </a>
+
+      <a class="carousel-control-next" href="#hero-carousel" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+      </a>
+
+    </div>
+
+
+  </section><!-- End Hero Section -->
+  {% else %}
+  <section id="hero" class="hero" style="background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6qbH-LPgGXlZkSi9h1NfCLmQYJp71KCdbMfOduriPm6UkWORHXfp6VOi30HqkVchqYcU&usqp=CAU); background-repeat: no-repeat; background-size: cover;" >
+
+    <div class="info d-flex align-items-center">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-6 text-center">
+            <h2 data-aos="fade-down">Welcome to <span>New User</span></h2>
+            <p data-aos="fade-up">We are excited to have you here! Kindly register to create an account or log in to access your dashboard and explore all features.</p>
+            <a data-aos="fade-up" data-aos-delay="200" href="{% url 'users-register' %}" class="btn-get-started">Register</a>
+            <a data-aos="fade-up" data-aos-delay="300" href="{% url 'login' %}" class="btn-get-started">Login</a>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+    <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+
+      <div class="carousel-item active" style="background-image: url(https://petersenneurospine.com/wp-content/uploads/2021/11/Spinal-Stenosis-Hero-Image.png)">
+      </div>
+      <div class="carousel-item" style="background-image: url(assets/img/hero-carousel/hero-carousel-2.jpg)"></div>
+      <div class="carousel-item" style="background-image: url(assets/img/hero-carousel/hero-carousel-3.jpg)"></div>
+      <div class="carousel-item" style="background-image: url(assets/img/hero-carousel/hero-carousel-4.jpg)"></div>
+      <div class="carousel-item" style="background-image: url(assets/img/hero-carousel/hero-carousel-5.jpg)"></div>
+
+      <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+      </a>
+
+      <a class="carousel-control-next" href="#hero-carousel" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+      </a>
+
+    </div>
+
+  </section>
+  {% endif %}
+
+  {% if user.is_authenticated %}
+  <main id="main">
+
+    <!-- ======= Get Started Section ======= -->
+    <section id="get-started" class="get-started section-bg" style="background-color: rgb(235, 230, 223);">
+      <div class="container">
+
+        <div class="row justify-content-between gy-4">
+
+          <div class="col-lg-6 d-flex align-items-center" data-aos="fade-up">
+            <div class="content">
+              <h3>Understanding Spinal Lumbar Stenosis</h3>
+              <dl>
+                <dt>What is Spinal Lumbar Stenosis?</dt>
+                <dd>Spinal Lumbar Stenosis is a condition in which the spinal canal in the lower back (lumbar region) becomes narrowed, putting pressure on the spinal cord and nerves. This can cause pain, numbness, and weakness in the legs, lower back, and buttocks. It is most commonly caused by age-related changes, such as arthritis, herniated discs, or thickened ligaments.</dd>
+
+              </dl>
+            </div>
+          </div>
+          
+
+          <div class="col-lg-5" data-aos="fade" >
+            <!-- Image section on the right side -->
+            <img  style=" width: 550px;" src="https://onondagapt.com/wp-content/uploads/2019/02/Spinal-stenosis.jpg" >
+          </div><!-- End Image Section -->
+
+        </div>
+
+      </div>
+    </section><!-- End Get Started Section -->
+    
+
+    <!-- ======= Constructions Section ======= -->
+    
+    
+    <!-- End Constructions Section -->
+
+    <!-- ======= Services Section ======= -->
+    
+    <!-- ======= Alt Services Section ======= -->
+    <section id="spinal-lumbar-stenosis" class="spinal-lumbar-stenosis">
+      <div class="container" data-aos="fade-up">
+        <div class="row justify-content-around gy-4">
+          <!-- Left image background section -->
+          <div class="col-lg-6 img-bg" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoW47jdKhFVgYrg8tC7-63U1BqqtHPt8Jmjg&s') ; background-repeat: no-repeat; background-size: cover; "  data-aos="zoom-in" data-aos-delay="100"></div>
+      
+          <!-- Right content section -->
+          <div class="col-lg-5 d-flex flex-column justify-content-center">
+            <h3>Understanding Spinal Lumbar Stenosis</h3>
+      
+            <!-- First information box -->
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="100">
+              <i class="bi bi-person-check flex-shrink-0"></i>
+              <div>
+                <h4><a href="" class="stretched-link">Signs and Symptoms</a></h4>
+                <p>Common symptoms of Spinal Lumbar Stenosis include lower back pain, leg pain, numbness, and difficulty walking. These symptoms tend to worsen with activity and improve with rest. In severe cases, SLS can lead to difficulty controlling bladder or bowel movements.</p>
+              </div>
+            </div><!-- End Icon Box -->
+      
+            <!-- Second information box -->
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="200">
+              <i class="bi bi-thermometer flex-shrink-0"></i>
+              <div>
+                <h4><a href="" class="stretched-link">Diagnosis and Imaging</a></h4>
+                <p>A doctor may diagnose Spinal Lumbar Stenosis with physical exams, patient history, and imaging tests like X-rays, MRIs, or CT scans. These tests help visualize the narrowing of the spinal canal and identify the areas under pressure.</p>
+              </div>
+            </div><!-- End Icon Box -->
+      
+            <!-- Third information box -->
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="300">
+              <i class="bi bi-heart flex-shrink-0"></i>
+              <div>
+                <h4><a href="" class="stretched-link">Treatment Options</a></h4>
+                <p>Treatment for Spinal Lumbar Stenosis can include physical therapy, pain management, and medication such as NSAIDs or corticosteroid injections. In some cases, surgery may be required to relieve pressure on the spinal cord or nerves.</p>
+              </div>
+            </div><!-- End Icon Box -->
+      
+            <!-- Fourth information box -->
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="400">
+              <i class="bi bi-chat-square-text flex-shrink-0"></i>
+              <div>
+                <h4><a href="" class="stretched-link">Living with Spinal Lumbar Stenosis</a></h4>
+                <p>While Spinal Lumbar Stenosis can cause chronic pain, many individuals manage the condition with regular exercise, proper posture, and lifestyle modifications. It’s important to work closely with healthcare providers to find an individualized treatment plan that improves quality of life.</p>
+              </div>
+            </div><!-- End Icon Box -->
+      
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- End Alt Services Section -->
+    
+    <style>
+      /* Chatbot container */
+      .chatbot-container {
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          z-index: 1000;
+      }
+    
+      /* Chatbot icon */
+      .chatbot-icon {
+          background-color: #007bff;
+          color: white;
+          border-radius: 50%;
+          padding: 15px;
+          font-size: 24px;
+          cursor: pointer;
+          transition: background-color 0.3s, transform 0.3s;
+      }
+    
+      .chatbot-icon:hover {
+          background-color: #0056b3;
+          transform: scale(1.1);
+      }
+    
+      /* Chatbox */
+      .chatbox {
+          display: none; /* Hidden by default */
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          width: 360px;
+          max-height: 500px;
+          border: 1px solid #ccc;
+          border-radius: 10px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          background-color: white;
+          overflow: hidden;
+          animation: slideIn 0.3s ease-in-out;
+      }
+    
+      /* Chatbox header */
+      .chatbox-header {
+          background-color: #007bff;
+          color: white;
+          padding: 15px;
+          border-bottom: 1px solid #ccc;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+      }
+    
+      .chatbox-header h3 {
+          margin: 0;
+          font-size: 16px;
+      }
+    
+      .close-btn {
+          background: none;
+          border: none;
+          color: white;
+          font-size: 20px;
+          cursor: pointer;
+      }
+    
+      /* Chatbox body */
+      .chatbox-body {
+          padding: 15px;
+          height: 350px;
+          overflow-y: auto;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+      }
+    
+      .message {
+          border-radius: 10px;
+          padding: 10px;
+          max-width: 80%;
+          word-wrap: break-word;
+          position: relative;
+      }
+    
+      .bot-message {
+          background-color: #f1f1f1;
+          align-self: flex-start;
+          border: 1px solid #ccc;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+      }
+    
+      .user-message {
+          background-color: #007bff;
+          color: white;
+          align-self: flex-end;
+          border: 1px solid #0056b3;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+      }
+    
+      /* Chatbox footer */
+      .chatbox-footer {
+          padding: 10px;
+          border-top: 1px solid #ccc;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          background-color: #f9f9f9;
+      }
+    
+      .chatbox-footer input {
+          flex: 1;
+          padding: 10px;
+          border: 1px solid #ddd;
+          border-radius: 20px;
+          font-size: 14px;
+          outline: none;
+      }
+    
+      .chatbox-footer button {
+          background-color: #007bff;
+          color: white;
+          border: none;
+          border-radius: 50%;
+          padding: 10px 15px;
+          font-size: 16px;
+          cursor: pointer;
+          transition: background-color 0.3s, transform 0.3s;
+      }
+    
+      .chatbox-footer button:hover {
+          background-color: #0056b3;
+          transform: scale(1.1);
+      }
+    
+      /* Animation */
+      @keyframes slideIn {
+          from {
+              transform: translateY(100%);
+              opacity: 0;
+          }
+          to {
+              transform: translateY(0);
+              opacity: 1;
+          }
+      }
+    </style>
+    
+    <script>
+      // Function to toggle the chatbox visibility
+      function toggleChatbox() {
+          const chatbox = document.querySelector('.chatbox');
+          chatbox.style.display = chatbox.style.display === 'block' ? 'none' : 'block';
+      }
+    </script>
+
+    <!-- End Recent Blog Posts Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  
+  <!-- End Footer -->
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <div id="preloader"></div>
+  {% endif %}
+
+  <!-- Vendor JS Files -->
+  <script src="{%static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{%static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{%static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{%static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{%static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{%static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+  <script src="{%static 'assets/vendor/php-email-form/validate.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{%static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>

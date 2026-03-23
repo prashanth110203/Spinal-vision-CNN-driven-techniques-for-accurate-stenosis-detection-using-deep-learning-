@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* (A) GLOBAL STYLES */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: url(https://images.pexels.com/photos/5723876/pexels-photo-5723876.jpeg?auto=compress&cs=tinysrgb&w=800)no-repeat;
+      background-size: cover;
+      color: #ffffff;
+      text-align: center;
+      margin: 0;
+      padding: 30px;
+  }
+    /* (B) WRAPPER */
+    #up-wrap {
+      width: 500px;
+      padding: 30px;
+      border-radius: 15px;
+      background: linear-gradient(135deg, #ac7fd6, #d3e3ff);
+
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    /* (C) HEADER */
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    /* (D) PROGRESS BAR */
+    #up-progress {
+      position: relative;
+      background: #f0f0f0;
+      border-radius: 5px;
+      overflow: hidden;
+      margin: 20px 0;
+    }
+    #up-bar {
+      background: #4caf50;
+      height: 30px;
+      width: 0;
+      transition: width 0.5s ease;
+    }
+    #up-percent {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    /* (E) FILE PICKER */
+    #up-file {
+      display: none;
+    }
+    #up-label {
+      display: inline-block;
+      padding: 10px 25px;
+      color: #fff;
+      background: #007bff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    #up-label:hover {
+      background: #0056b3;
+    }
+
+    /* (F) IMAGE & TEXT */
+    #upload {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 20px;
+      {% comment %} background-image: url(https://images.pexels.com/photos/4226138/pexels-photo-4226138.jpeg?auto=compress&cs=tinysrgb&w=800); background-repeat: no-repeat; background-size: cover; {% endcomment %}
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    /* (G) FOOTER */
+    #code-boxx {
+      font-weight: 600;
+      margin-top: 30px;
+      text-align: center;
+    }
+    #code-boxx a {
+      display: inline-block;
+      padding: 8px 16px;
+      text-decoration: none;
+      background: #e83e8c;
+      color: #fff;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+    #code-boxx a:hover {
+      background: #d63384;
+    }
+
+    /* (H) FORM STYLES */
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    form p {
+      margin: 0;
+      color: #555;
+    }
+    input[type="submit"] {
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    input[type="submit"]:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <center>
+  <div id="up-wrap">
+    <h1>Deep Learning Deployment</h1>
+    <div id="up-demo" style="color: #555;">
+      Deep Learning deployment is the process of making trained neural network models accessible for predictions and use in production systems.
+    </div>
+    <br>
+    <form action="" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <p>{{ form.as_p }}</p>
+      <input type="submit" value="Submit">
+    </form>
+    <div id="code-boxx">
+      Go To <a href="{% url 'users-home' %}" target="_blank">HOME</a>
+    </div>
+  </div>
+</center>
+</body>
+</html>

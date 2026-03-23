@@ -1,0 +1,183 @@
+<style>
+  body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #f0f0f0;
+  }
+
+  #backgroundimg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 0.3;
+  }
+
+  .main {
+      width: 100%;
+      max-width: 600px;
+      height: 100vh;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .header {
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      background: #6200ea;
+      color: white;
+      position: relative;
+  }
+
+  .header i {
+      font-size: 1.2em;
+      cursor: pointer;
+  }
+
+  #pfpname {
+      flex-grow: 1;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.2em;
+  }
+
+  .notifications {
+      background-color: #ff4081;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 0.9em;
+  }
+
+  .content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 10px;
+      background: #f5f5f5;
+  }
+
+  .chat-area {
+      padding: 15px;
+  }
+
+  .assistant-title {
+      text-align: center;
+      font-weight: bold;
+      margin-bottom: 10px;
+  }
+
+  .msg-btn-holder {
+      display: flex;
+      justify-content: flex-start;
+      margin-bottom: 10px;
+  }
+
+  .msg-btn-holder.sender {
+      justify-content: flex-end;
+  }
+
+  .msg-btn {
+      padding: 10px;
+      border-radius: 15px;
+      max-width: 70%;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      margin: 5px;
+      font-size: 0.9em;
+  }
+
+  .sender-msg {
+      background: #d1c4e9;
+      align-self: flex-end;
+  }
+
+  .receiver-msg {
+      background: #bbdefb;
+      align-self: flex-start;
+  }
+
+  .footer {
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      background: #6200ea;
+  }
+
+  .text-box {
+      flex-grow: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      margin-right: 10px;
+  }
+
+  .send-ico {
+      background: #ff4081;
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+  }
+
+  .send-ico i {
+      color: white;
+  }
+</style>
+
+<body>
+  <img id="backgroundimg" src="https://cdn.pixabay.com/photo/2016/11/29/04/42/conifers-1867371_960_720.jpg" alt="Background Image">
+  <div class="main">
+      <div class="header">
+          <i class="fas fa-arrow-left"></i>
+          <p id="pfpname">CHATBOT</p>
+          <div class="notifications">AI</div>
+      </div>
+      <div class="content">
+          <div class="chat-area">
+              <p class="assistant-title">GOOGLE ASSISTANT</p>
+              {% for model in chat %}
+              <div class="msg-btn-holder receiver">
+                  <div class="receiver-msg msg-btn">
+                      <p>{{ model.text }}</p>
+                  </div>
+              </div>
+              <div class="msg-btn-holder sender">
+                  <div class="sender-msg msg-btn">
+                      <p>{{ model.label }}</p>
+                  </div>
+              </div>
+              {% endfor %}
+          </div>
+      </div>
+  </div>
+</body>
+
+<script>
+  document.querySelector('.send-ico').addEventListener('click', function () {
+      const textBox = document.querySelector('.text-box');
+      const message = textBox.value.trim();
+
+      if (message) {
+          // Append sender message
+          const msgHolder = document.createElement('div');
+          msgHolder.className = 'msg-btn-holder sender';
+
+          const senderMsg = document.createElement('div');
+          senderMsg.className = 'sender-msg msg-btn';
+          senderMsg.innerHTML = `<p>${message}</p>`;
+
+          msgHolder.appendChild(senderMsg);
+          document.querySelector('.chat-area').appendChild(msgHolder);
+
+          // Clear the input
+          textBox.value = '';
+
+          // Scroll to bottom
+          document.querySelector('.content').scrollTop = document.querySelector('.content').scrollHeight;
+      }
+  });
+</script>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Kidney Classification Results</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7fafc;
+            color: #2d3748;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .card-container {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+        .image-container img {
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .card-title {
+            font-size: 1.75rem;
+            font-weight: bold;
+            color: #e53e3e;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        .card-content {
+            text-align: left;
+            margin-top: 16px;
+        }
+        .card-header {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2b6cb0;
+            margin-bottom: 12px;
+        }
+        .card-text {
+            font-size: 1rem;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+        .info-card {
+            background: #f7fafc;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        .info-card h3 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #2b6cb0;
+            margin-bottom: 8px;
+        }
+        .info-card p {
+            font-size: 1rem;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+        .icon {
+            font-size: 24px;
+            color: #e53e3e;
+            margin-right: 8px;
+        }
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2b6cb0;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #fff;
+            background-color: #e53e3e;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #c53030;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        {% if obj %}
+            <div class="card-container">
+                <center>
+                    <div class="image-container">
+                        <img src="{{ obj.image.url }}" alt="Kidney Classification Image" class="rounded-xl" style="width: 250px; height: 250px;">
+                    </div>
+                </center>
+                {% if obj %}
+                <div class="grid gap-6">
+                    {% if predict == 'mild' %}
+                    <h2 class="section-title">FOUND THIS IMAGE IS SPINAL LUMBAR STENOSIS (MILD LEVEL)</h2>
+                    <div class="info-card">
+                        <h3><span class="icon">📄</span>Description</h3>
+                        <p>Spinal lumbar stenosis is a condition where the spinal canal narrows in the lower back, putting pressure on the nerves. In mild cases, symptoms might be subtle, causing occasional discomfort or pain in the lower back or legs.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><span class="icon">🔍</span>Causes</h3>
+                        <p>Common causes of lumbar stenosis include age-related changes such as osteoarthritis, herniated discs, thickened ligaments, and bone spurs. In some cases, genetics may also play a role.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><span class="icon">🛡️</span>Prevention</h3>
+                        <p>While spinal lumbar stenosis cannot always be prevented, maintaining a healthy weight, exercising regularly, and avoiding activities that strain the back may help reduce the risk of developing the condition.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><span class="icon">💊</span>Treatment</h3>
+                        <p>For mild lumbar stenosis, treatments may include physical therapy, pain relievers, and anti-inflammatory medications. In some cases, corticosteroid injections can be used to reduce inflammation and relieve pain.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><span class="icon">🍎</span>Diet</h3>
+                        <p>There is no specific diet for lumbar stenosis, but a diet rich in calcium and vitamin D can help maintain bone health. Adequate hydration and anti-inflammatory foods may also help manage symptoms.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><span class="icon">🏃‍♂️</span>Physical Activity</h3>
+                        <p>Low-impact activities such as walking, swimming, or cycling are beneficial. These activities help strengthen the muscles supporting the spine, improving mobility and reducing pain.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><span class="icon">⚖️</span>Body Condition Level</h3>
+                        <p>Maintaining a healthy body weight is crucial, as extra weight can put additional strain on the spine. Regular exercise to strengthen the core and back muscles is important for managing mild lumbar stenosis.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><span class="icon">👴</span>Affected Age Group</h3>
+                        <p>Spinal lumbar stenosis typically affects individuals over the age of 50. However, it can occur at younger ages due to congenital factors or spinal injuries.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><span class="icon">ℹ️</span>Additional Information</h3>
+                        <p>Although spinal lumbar stenosis cannot always be reversed, proper management and treatment can help alleviate symptoms and improve quality of life. Surgery is usually considered only for severe cases that do not respond to conservative treatments.</p>
+                    </div>
+
+                    {% elif predict == 'moderate' %}
+                    <h2 class="section-title">FOUND THIS IMAGE IS SPINAL LUMBAR STENOSIS (MODERATE LEVEL)</h2>
+                    <div class="info-card">
+                        <h3><span class="icon">📄</span>Description</h3>
+                        <p>Spinal lumbar stenosis is a condition where the spaces within the spine narrow, putting pressure on the spinal cord and nerves. At a moderate level, individuals may experience significant discomfort and mild to moderate impairment in mobility.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><span class="icon">🔍</span>Causes</h3>
+                        <p>The primary cause of lumbar stenosis is the natural aging process, where the spine undergoes degeneration. Other contributing factors include herniated discs, thickened ligaments, and bone spurs that narrow the spinal canal.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><span class="icon">🛡️</span>Prevention</h3>
+                        <p>While spinal lumbar stenosis cannot always be prevented, maintaining a healthy weight, practicing good posture, and performing regular exercises to strengthen back muscles can help reduce the risk of severe symptoms.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><span class="icon">💊</span>Treatment</h3>
+                        <p>At a moderate level, treatment typically includes physical therapy, pain management strategies (such as NSAIDs or steroid injections), and lifestyle modifications. In more severe cases, surgical intervention may be considered to relieve pressure on the nerves.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><span class="icon">🍎</span>Diet</h3>
+                        <p>Maintaining a balanced diet rich in anti-inflammatory foods, such as omega-3 fatty acids, and ensuring adequate calcium and vitamin D intake is important for maintaining bone health and reducing inflammation.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><span class="icon">🏃‍♂️</span>Physical Activity</h3>
+                        <p>Physical activity is essential for managing moderate lumbar stenosis. Low-impact exercises, such as swimming, walking, or cycling, can help improve flexibility, strengthen the back muscles, and alleviate symptoms.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><span class="icon">⚖️</span>Body Condition Level</h3>
+                        <p>Maintaining a healthy weight is crucial in managing spinal lumbar stenosis. Excess weight can strain the spine and exacerbate symptoms. Regular physical activity and proper posture can help prevent further degeneration.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><span class="icon">👴</span>Affected Age Group</h3>
+                        <p>Spinal lumbar stenosis is most commonly diagnosed in individuals over the age of 50, though it may affect younger individuals due to congenital conditions or injury.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><span class="icon">ℹ️</span>Additional Information</h3>
+                        <p>Early diagnosis and a tailored treatment plan can significantly improve quality of life for individuals with moderate spinal lumbar stenosis. Collaboration between healthcare providers and patients is key to managing symptoms effectively.</p>
+                    </div>
+                
+                    {% elif predict == 'normal' %}
+                    <h2 class="section-title">FOUND THIS IMAGE IS NORMAL SPINAL STRUCTURE</h2>
+                    <div class="info-card">
+                        <h3><span class="icon">📄</span>Description</h3>
+                        <p>A normal spinal structure indicates no narrowing of the spinal canal. The vertebrae, discs, and surrounding tissues are in healthy alignment, with no signs of abnormal wear, pressure, or irritation to the spinal nerves.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><span class="icon">🔍</span>Causes</h3>
+                        <p>Healthy spinal structures result from good posture, regular physical activity, proper body mechanics, and a balanced diet that supports bone and joint health. Genetics may play a role in maintaining a healthy spine.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><span class="icon">🛡️</span>Prevention</h3>
+                        <p>To maintain a normal spine, regular exercise, maintaining a healthy weight, and practicing good posture are key. Stretching and strengthening muscles that support the spine can also help prevent injuries and degeneration.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><span class="icon">💊</span>Treatment</h3>
+                        <p>Since the spinal structure is normal, no specific treatment is required. However, it’s important to continue maintaining a healthy lifestyle with regular checkups to ensure the spine remains in optimal health.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><span class="icon">🍎</span>Diet</h3>
+                        <p>A diet rich in calcium, vitamin D, and omega-3 fatty acids is essential for maintaining strong bones and joints. Foods that support bone health, such as dairy, leafy greens, and fish, are beneficial for spinal health.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><span class="icon">🏃‍♂️</span>Physical Activity</h3>
+                        <p>Engaging in regular physical activity, such as walking, swimming, or light weight training, helps keep the muscles supporting the spine strong and flexible. Yoga and Pilates are also excellent for spinal alignment and mobility.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><span class="icon">⚖️</span>Body Condition Level</h3>
+                        <p>Maintaining a healthy weight reduces the load on the spine, ensuring that the spinal structures remain aligned and well-supported. Strengthening core and back muscles helps in maintaining normal spine function.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><span class="icon">👴</span>Affected Age Group</h3>
+                        <p>A healthy spine can be maintained at any age with proper care. Regular checkups and maintaining a good lifestyle can help prevent degenerative changes as individuals age, ensuring continued spinal health.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><span class="icon">ℹ️</span>Additional Information</h3>
+                        <p>Although spinal health can be maintained with regular care, it is important to monitor any changes in posture or mobility. Early detection of issues such as pain or discomfort can help prevent further complications. A normal spine is vital for overall well-being and mobility.</p>
+                    </div>
+
+                {% elif predict == 'severe' %}
+                <h2 class="section-title">FOUND THIS IMAGE IS SPINAL LUMBAR STENOSIS (SEVERE LEVEL)</h2>
+                <div class="info-card">
+                    <h3><span class="icon">📄</span>Description</h3>
+                    <p>Severe spinal lumbar stenosis occurs when the spinal canal narrows significantly, putting substantial pressure on the spinal cord and nerves. This can lead to intense pain, weakness, numbness, and loss of function in the legs, lower back, or bladder. In severe cases, mobility can be severely impaired.</p>
+                </div>
+                <div class="info-card">
+                    <h3><span class="icon">🔍</span>Causes</h3>
+                    <p>The primary causes of severe lumbar stenosis include advanced osteoarthritis, spinal injuries, herniated discs, and bone spurs. The condition can also result from congenital spinal defects or previous surgeries. Age-related degeneration and thickened ligaments contribute to narrowing of the spinal canal.</p>
+                </div>
+                <div class="info-card">
+                    <h3><span class="icon">🛡️</span>Prevention</h3>
+                    <p>While severe spinal stenosis cannot always be prevented, managing risk factors like maintaining a healthy weight, staying active, and avoiding excessive strain on the back may reduce the likelihood of developing severe symptoms. Early detection through regular checkups can also prevent progression.</p>
+                </div>
+                <div class="info-card">
+                    <h3><span class="icon">💊</span>Treatment</h3>
+                    <p>Treatments for severe lumbar stenosis often include stronger pain medications, such as prescription opioids, as well as physical therapy to improve mobility and manage symptoms. In cases where conservative treatments fail, epidural steroid injections, nerve blocks, or surgery (such as laminectomy or spinal fusion) may be necessary.</p>
+                </div>
+                <div class="info-card">
+                    <h3><span class="icon">🍎</span>Diet</h3>
+                    <p>A diet that supports bone health, such as one rich in calcium, vitamin D, and omega-3 fatty acids, is crucial for managing spinal stenosis. Anti-inflammatory foods like turmeric, ginger, and leafy greens may help reduce swelling and discomfort. Staying hydrated is also important for overall joint health.</p>
+                </div>
+                <div class="info-card">
+                    <h3><span class="icon">🏃‍♂️</span>Physical Activity</h3>
+                    <p>While high-impact activities should be avoided, low-impact exercises such as swimming, walking, or using a stationary bike are beneficial. These activities help strengthen the muscles around the spine and improve flexibility, which can alleviate pain and improve quality of life.</p>
+                </div>
+                <div class="info-card">
+                    <h3><span class="icon">⚖️</span>Body Condition Level</h3>
+                    <p>Maintaining an ideal weight is critical in severe spinal stenosis. Extra weight places more strain on the spine, which can worsen symptoms. Strengthening core muscles and avoiding excessive bending or twisting can help support the spine and prevent further damage.</p>
+                </div>
+                <div class="info-card">
+                    <h3><span class="icon">👴</span>Affected Age Group</h3>
+                    <p>Severe spinal lumbar stenosis is more common in individuals over the age of 60. However, younger individuals with congenital spinal conditions, spinal injuries, or a history of previous back surgeries may also experience severe symptoms.</p>
+                </div>
+                <div class="info-card">
+                    <h3><span class="icon">ℹ️</span>Additional Information</h3>
+                    <p>Severe spinal lumbar stenosis can lead to significant quality-of-life issues, including difficulty walking, standing for long periods, and performing everyday tasks. If non-surgical treatments are ineffective, surgical intervention may be necessary to relieve pressure on the nerves and improve function.</p>
+                </div>
+
+
+            
+                
+
+                    {% endif %}
+                </div>
+                {% else %}
+                <p>No data available for prediction.</p>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
